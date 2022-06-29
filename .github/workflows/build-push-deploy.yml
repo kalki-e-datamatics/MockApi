@@ -27,6 +27,7 @@ jobs:
       run: docker push ${{ env.IMAGE_REPO }}:$(cat version.txt)
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
